@@ -24,11 +24,12 @@
             </div>
             <button type="button" id="calculate_Btn">Calculate EMI</button>
         </form>
+        <div class="result">
+            <h3 class="monthly_EMI" >Result: <span id="emi_result"></span></h3>
+        </div>
     </div>
 
-    <div class="result">
-        <h3 class="monthly_EMI" >Result: <span id="emi_result"></span></h3>
-    </div>
+
     <script>
     document.getElementById('calculate_Btn').addEventListener('click', function () {
     const loanAmount = parseFloat(document.getElementById('Loan_amount').value);
@@ -43,7 +44,7 @@
     const emi = (loanAmount * interestRate * Math.pow(1 + interestRate, loanTenure)) /
                 (Math.pow(1 + interestRate, loanTenure) - 1);
 
-    document.getElementById('emi_result').textContent = `₹${emi.toFixed(2)}`;
+    document.getElementById('emi_result').textContent = `₹ ${emi.toFixed(2)}`;
 });
 
     </script>
