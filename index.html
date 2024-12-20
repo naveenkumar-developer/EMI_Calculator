@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI CALCULATOR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>EMI CALCULATOR</h1>
+        <form class="emiForm" id="emiForm">
+            <div class="inputGroup">
+                <label for="Loan_amount">Loan Amount ₹: </label>
+                <input type="number" id="Loan_amount" placeholder="Enter your Loan Amount" required/>
+            </div>
+            <div class="inputGroup">
+                <label for="Interest_Rate">Interest_rate % per annum: </label>
+                <input type="number" id="Interest_Rate" placeholder="Enter The Interest Rate" required/>
+            </div>
+            <div class="inputGroup">
+                <label for="Loan_tenure">Loan Tenure in months: </label>
+                <input type="number" id="Loan_tenure" placeholder="Enter The Loan Tenure" required/>
+            </div>
+            <button type="button" id="calculate_Btn">Calculate EMI</button>
+        </form>
+    </div>
+
+    <div class="result">
+        <h3 class="monthly_EMI" >Result: <span id="emi_result"></span></h3>
+    </div>
+    <script>
+    document.getElementById('calculate_Btn').addEventListener('click', function () {
+    const loanAmount = parseFloat(document.getElementById('Loan_amount').value);
+    const interestRate = parseFloat(document.getElementById('Interest_Rate').value) / 12 / 100;
+    const loanTenure = parseInt(document.getElementById('Loan_tenure').value);
+
+    if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTenure)) {
+        alert('Please fill in all fields with valid numbers');
+        return;
+    }
+
+    const emi = (loanAmount * interestRate * Math.pow(1 + interestRate, loanTenure)) /
+                (Math.pow(1 + interestRate, loanTenure) - 1);
+
+    document.getElementById('emi_result').textContent = `₹${emi.toFixed(2)}`;
+});
+
+    </script>
+</body>
+</html>
