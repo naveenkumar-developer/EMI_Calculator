@@ -4,6 +4,8 @@ An EMI Calculator is a web application that helps users calculate their monthly 
 
 ## Preview 📸
 
+View the project click [here](https://naveenkumar-developer.github.io/EMI_Calculator/)
+
 ![project image](./EMI_Calculator.png)
 
 
